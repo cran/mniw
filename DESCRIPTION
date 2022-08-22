@@ -1,8 +1,8 @@
 Package: mniw
 Type: Package
 Title: The Matrix-Normal Inverse-Wishart Distribution
-Version: 1.0
-Date: 2019-10-06
+Version: 1.0.1
+Date: 2022-08-11
 Authors@R: c(person("Martin", "Lysy", role = c("aut", "cre"),
                     email = "mlysy@uwaterloo.ca"),
              person("Bryan", "Yates", role = "aut"))
@@ -16,12 +16,12 @@ LinkingTo: Rcpp, RcppEigen
 LazyData: true
 Suggests: testthat, knitr, rmarkdown
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2019-10-09 13:43:27 UTC; mlysy
+Packaged: 2022-08-22 15:39:29 UTC; mlysy
 Author: Martin Lysy [aut, cre],
   Bryan Yates [aut]
 Maintainer: Martin Lysy <mlysy@uwaterloo.ca>
 Repository: CRAN
-Date/Publication: 2019-10-09 14:20:02 UTC
+Date/Publication: 2022-08-22 16:30:05 UTC

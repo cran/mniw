@@ -89,11 +89,11 @@ namespace mniw {
   /// @note For safest results, all "off-triangular" elements of triangular arguments should be set to zero.
   template <typename T1>
   void triMultLiX(Ref<MatrixXd> X, const Eigen::MatrixBase<T1>& L) {
-#ifdef _MSC_VER
-    L.template triangularView<Eigen::Lower>().solveInPlace(X);
-#else
-    L.template triangularView<Eigen::Lower>().template solveInPlace(X);
-#endif
+// #ifdef _MSC_VER
+//     L.template triangularView<Eigen::Lower>().solveInPlace(X);
+// #else
+    L.template triangularView<Eigen::Lower>().template solveInPlace<>(X);
+// #endif
     return;
   }
 
@@ -108,11 +108,11 @@ namespace mniw {
   /// @note For safest results, all "off-triangular" elements of triangular arguments should be set to zero.
   template <typename T1>
   void triMultXLi(Ref<MatrixXd> X, const Eigen::MatrixBase<T1>& L) {
-#ifdef _MSC_VER
-    L.template triangularView<Eigen::Lower>().solveInPlace<OnTheRight>(X);
-#else
+// #ifdef _MSC_VER
+//     L.template triangularView<Eigen::Lower>().solveInPlace<OnTheRight>(X);
+// #else
     L.template triangularView<Eigen::Lower>().template solveInPlace<OnTheRight>(X);
-#endif
+// #endif
     return;
   }
 
@@ -127,11 +127,11 @@ namespace mniw {
   /// @note For safest results, all "off-triangular" elements of triangular arguments should be set to zero.
   template <typename T1>
   void triMultUiX(const Eigen::MatrixBase<T1>& U, Ref<MatrixXd> X) {
-#ifdef _MSC_VER
-    U.template triangularView<Eigen::Upper>().solveInPlace(X);
-#else
-    U.template triangularView<Eigen::Upper>().template solveInPlace(X);
-#endif
+// #ifdef _MSC_VER
+//     U.template triangularView<Eigen::Upper>().solveInPlace(X);
+// #else
+    U.template triangularView<Eigen::Upper>().template solveInPlace<>(X);
+// #endif
     return;
   }
 
@@ -328,9 +328,9 @@ namespace mniw {
   /// @param [in] cholV Cholesky solver of size `n x n` required for intermediate calculations.
   /// @return The logarithm of the determinant of `V`.
   inline double logDetV(MatrixXd V, LLT<MatrixXd> cholV) {
-    double ldV = 0.0;
     cholV.compute(V);
     return 2.0 * logDetCholV(cholV);
+    // double ldV = 0.0;
     // for(int ii=0; ii<V.cols(); ii++) {
     //   ldV += log(cholV.matrixL()(ii,ii));
     // }
